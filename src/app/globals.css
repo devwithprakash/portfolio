@@ -1,0 +1,880 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "tailwind-scrollbar-hide/v4";
+
+@custom-variant dark (&:is(.dark *));
+
+.github-calendar-wrap svg {
+  overflow: hidden;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-heading: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* globals.css */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+:root:not(.dark) body,
+:root:not(.dark) main {
+  background-color: #f5f4f0 !important;
+}
+:root:not(.dark) section,
+:root:not(.dark) footer {
+  background-color: #f5f4f0 !important;
+}
+/* border-[#0d0d0d] — used on avatar ring dot to match page bg */
+:root:not(.dark) .border-\[\#0d0d0d\] {
+  border-color: #f5f4f0 !important;
+}
+
+:root:not(.dark) nav {
+  background-color: #f5f4f0 !important;
+}
+
+/* ---- Text colors ---- */
+:root:not(.dark) .text-white {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .text-white\/75,
+:root:not(.dark) .text-white\/70,
+:root:not(.dark) .text-white\/65 {
+  color: rgba(30, 30, 30, 0.75) !important;
+}
+:root:not(.dark) .text-white\/60,
+:root:not(.dark) .text-white\/55 {
+  color: rgba(30, 30, 30, 0.65) !important;
+}
+:root:not(.dark) .text-white\/45,
+:root:not(.dark) .text-white\/40,
+:root:not(.dark) .text-white\/35 {
+  color: rgba(30, 30, 30, 0.45) !important;
+}
+:root:not(.dark) .text-white\/30,
+:root:not(.dark) .text-white\/20 {
+  color: rgba(30, 30, 30, 0.35) !important;
+}
+
+/* ---- Border colors ---- */
+:root:not(.dark) .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+:root:not(.dark) .border-white\/8 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+:root:not(.dark) .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+:root:not(.dark) .border-white\/12 {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+:root:not(.dark) .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+:root:not(.dark) .border-white\/25 {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+/* ---- Background colors ---- */
+:root:not(.dark) .bg-\[\#0d0d0d\] {
+  background-color: #f5f4f0 !important;
+}
+:root:not(.dark) .bg-\[\#1a1a1a\] {
+  background-color: #e8e7e3 !important;
+}
+:root:not(.dark) .bg-\[\#151515\] {
+  background-color: #eae9e5 !important;
+}
+:root:not(.dark) .bg-white\/8,
+:root:not(.dark) .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+:root:not(.dark) .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* CTA / buttons */
+:root:not(.dark) .bg-white.text-\[\#0d0d0d\] {
+  background-color: #1a1a1a !important;
+  color: #f5f4f0 !important;
+}
+:root:not(.dark) .bg-white.text-\[\#0d0d0d\]:hover {
+  background-color: #333 !important;
+}
+
+/* Gradient overlay */
+:root:not(.dark) .from-\[\#0d0d0d\] {
+  --tw-gradient-from: #f5f4f0 !important;
+}
+
+/* Shadows */
+:root:not(.dark) .shadow-black\/30 {
+  --tw-shadow-color: rgba(0, 0, 0, 0.1) !important;
+}
+:root:not(.dark) .shadow-white\/10 {
+  --tw-shadow-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Hover helpers */
+:root:not(.dark) .hover\:border-white\/30:hover {
+  border-color: rgba(0, 0, 0, 0.28) !important;
+}
+:root:not(.dark) .hover\:text-white:hover {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .hover\:text-white\/70:hover {
+  color: rgba(30, 30, 30, 0.72) !important;
+}
+/* border-white/30 static variant (active tag filter on /projects) */
+:root:not(.dark) .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.26) !important;
+}
+
+/* Faint marks */
+:root:not(.dark) .text-white\/5 {
+  color: rgba(0, 0, 0, 0.05) !important;
+}
+:root:not(.dark) .text-white\/8 {
+  color: rgba(0, 0, 0, 0.07) !important;
+}
+:root:not(.dark) .text-white\/10 {
+  color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Dividers */
+:root:not(.dark) .bg-white\/15 {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
+:root:not(.dark) .bg-white\/20 {
+  background-color: rgba(0, 0, 0, 0.14) !important;
+}
+:root:not(.dark) .bg-white\/30 {
+  background-color: rgba(0, 0, 0, 0.18) !important;
+}
+:root:not(.dark) .bg-white\/40 {
+  background-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Form inputs */
+:root:not(.dark) .bg-white\/4,
+:root:not(.dark) .bg-white\/\[0\.04\] {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+:root:not(.dark) .bg-emerald-400\/8 {
+  background-color: rgba(52, 211, 153, 0.1) !important;
+}
+
+/* divide lines */
+:root:not(.dark) .divide-white\/5 > * + * {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =============================================
+   CARD BACKGROUNDS (#111, #0a0a0a)
+   Used on /projects and /blogs pages
+   ============================================= */
+:root:not(.dark) .bg-\[\#111\] {
+  background-color: #eeede9 !important;
+}
+:root:not(.dark) .hover\:bg-\[\#141414\]:hover {
+  background-color: #e5e4e0 !important;
+}
+:root:not(.dark) .bg-\[\#0a0a0a\] {
+  background-color: #e2e1dd !important;
+}
+/* Gradient overlays that use #111 as start colour */
+:root:not(.dark) .from-\[\#111\] {
+  --tw-gradient-from: #eeede9 !important;
+}
+
+/* =============================================
+   MISSING TEXT OPACITY VARIANTS
+   text-white/80 and /85 are used in card titles
+   ============================================= */
+:root:not(.dark) .text-white\/85 {
+  color: rgba(30, 30, 30, 0.85) !important;
+}
+:root:not(.dark) .text-white\/80 {
+  color: rgba(30, 30, 30, 0.78) !important;
+}
+
+/* =============================================
+   HOVER VARIANTS — card & icon buttons
+   ============================================= */
+:root:not(.dark) .hover\:border-white\/20:hover {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+:root:not(.dark) .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+:root:not(.dark) .hover\:text-white\/60:hover {
+  color: rgba(30, 30, 30, 0.6) !important;
+}
+:root:not(.dark) .hover\:border-white\/18:hover {
+  border-color: rgba(0, 0, 0, 0.16) !important;
+}
+
+/* =============================================
+   NAVBAR — semantic classes
+   ============================================= */
+.nav-root {
+  background-color: #0d0d0d;
+}
+.nav-scrolled {
+  background-color: rgba(13, 13, 13, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.nav-logo {
+  color: #fff;
+}
+.nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.nav-link-active {
+  color: #fff;
+}
+.nav-dot {
+  background-color: #fff;
+}
+.nav-icon-btn {
+  color: rgba(255, 255, 255, 0.55);
+}
+.nav-icon-btn:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.nav-mobile-link {
+  color: rgba(255, 255, 255, 0.55);
+}
+.nav-mobile-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.nav-mobile-active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+:root:not(.dark) .nav-root {
+  background-color: #f5f4f0 !important;
+}
+:root:not(.dark) .nav-scrolled {
+  background-color: rgba(245, 244, 240, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+:root:not(.dark) .nav-logo {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .nav-link {
+  color: rgba(30, 30, 30, 0.5) !important;
+}
+:root:not(.dark) .nav-link:hover {
+  color: rgba(30, 30, 30, 0.85) !important;
+}
+:root:not(.dark) .nav-link-active {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .nav-dot {
+  background-color: #1a1a1a !important;
+}
+:root:not(.dark) .nav-icon-btn {
+  color: rgba(30, 30, 30, 0.55) !important;
+}
+:root:not(.dark) .nav-icon-btn:hover {
+  color: #1a1a1a !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+:root:not(.dark) .nav-mobile-link {
+  color: rgba(30, 30, 30, 0.55) !important;
+}
+:root:not(.dark) .nav-mobile-link:hover {
+  color: #1a1a1a !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+:root:not(.dark) .nav-mobile-active {
+  color: #1a1a1a !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =============================================
+   PROJECT CARDS — semantic classes
+   ============================================= */
+.project-card {
+  background-color: #111;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.project-card-img-wrap {
+  background-color: #0a0a0a;
+}
+.project-card-fade {
+  background: linear-gradient(to top, #111, transparent);
+}
+.project-card-title {
+  color: rgba(255, 255, 255, 0.88);
+}
+.project-card:hover .project-card-title {
+  color: #fff;
+}
+.project-card-desc {
+  color: rgba(255, 255, 255, 0.48);
+}
+.project-card-icon {
+  color: rgba(255, 255, 255, 0.35);
+}
+.project-card-icon:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.project-card-tag {
+  color: rgba(255, 255, 255, 0.42);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+:root:not(.dark) .project-card {
+  background-color: #eeede9 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: none !important;
+}
+:root:not(.dark) .project-card:hover {
+  border-color: rgba(0, 0, 0, 0.18) !important;
+}
+:root:not(.dark) .project-card-img-wrap {
+  background-color: #e2e1dd !important;
+}
+:root:not(.dark) .project-card-fade {
+  background: linear-gradient(to top, #eeede9, transparent) !important;
+}
+:root:not(.dark) .project-card-title {
+  color: rgba(30, 30, 30, 0.88) !important;
+}
+:root:not(.dark) .project-card:hover .project-card-title {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .project-card-desc {
+  color: rgba(30, 30, 30, 0.58) !important;
+}
+:root:not(.dark) .project-card-icon {
+  color: rgba(30, 30, 30, 0.4) !important;
+}
+:root:not(.dark) .project-card-icon:hover {
+  color: #1a1a1a !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+:root:not(.dark) .project-card-tag {
+  color: rgba(30, 30, 30, 0.52) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* =============================================
+   CERTIFICATES — semantic classes
+   ============================================= */
+.cert-row:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.cert-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+.cert-row:hover .cert-title {
+  color: #fff;
+}
+.cert-issuer {
+  color: rgba(255, 255, 255, 0.35);
+}
+.cert-date {
+  color: rgba(255, 255, 255, 0.25);
+}
+.cert-link {
+  color: rgba(255, 255, 255, 0.25);
+}
+.cert-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+:root:not(.dark) .cert-row:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+:root:not(.dark) .cert-title {
+  color: rgba(30, 30, 30, 0.85) !important;
+}
+:root:not(.dark) .cert-row:hover .cert-title {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .cert-issuer {
+  color: rgba(30, 30, 30, 0.45) !important;
+}
+:root:not(.dark) .cert-date {
+  color: rgba(30, 30, 30, 0.38) !important;
+}
+:root:not(.dark) .cert-link {
+  color: rgba(30, 30, 30, 0.38) !important;
+}
+:root:not(.dark) .cert-link:hover {
+  color: #1a1a1a !important;
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =============================================
+   GITHUB CALENDAR WRAPPER
+   ============================================= */
+.github-calendar-wrap {
+  background-color: #111;
+  border-color: rgba(255, 255, 255, 0.08);
+  border-style: solid;
+  border-width: 1px;
+}
+.github-calendar-wrap *::-webkit-scrollbar {
+  display: none !important;
+}
+.github-calendar-wrap * {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+:root:not(.dark) .github-calendar-wrap {
+  background-color: #eeede9 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* =============================================
+   CONTACT PAGE — semantic classes
+   ============================================= */
+.contact-back {
+  color: rgba(255, 255, 255, 0.4);
+}
+.contact-back:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.contact-eyebrow {
+  color: rgba(255, 255, 255, 0.35);
+}
+.contact-heading {
+  color: #fff;
+}
+.contact-sub {
+  color: rgba(255, 255, 255, 0.48);
+}
+.contact-link {
+  color: rgba(255, 255, 255, 0.4);
+}
+.contact-link:hover {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.contact-social {
+  color: rgba(255, 255, 255, 0.45);
+}
+.contact-social:hover {
+  color: rgba(255, 255, 255, 0.82);
+}
+.contact-social-icon {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.4);
+}
+.contact-social:hover .contact-social-icon {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.contact-label {
+  color: rgba(255, 255, 255, 0.4);
+}
+.contact-input {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.contact-input:focus {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.contact-btn {
+  background-color: #fff;
+  color: #0d0d0d;
+}
+.contact-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+:root:not(.dark) .contact-back {
+  color: rgba(30, 30, 30, 0.42) !important;
+}
+:root:not(.dark) .contact-back:hover {
+  color: rgba(30, 30, 30, 0.75) !important;
+}
+:root:not(.dark) .contact-eyebrow {
+  color: rgba(30, 30, 30, 0.4) !important;
+}
+:root:not(.dark) .contact-heading {
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .contact-sub {
+  color: rgba(30, 30, 30, 0.58) !important;
+}
+:root:not(.dark) .contact-link {
+  color: rgba(30, 30, 30, 0.42) !important;
+}
+:root:not(.dark) .contact-link:hover {
+  color: rgba(30, 30, 30, 0.78) !important;
+}
+
+:root:not(.dark) .contact-social {
+  color: rgba(30, 30, 30, 0.5) !important;
+}
+:root:not(.dark) .contact-social:hover {
+  color: rgba(30, 30, 30, 0.85) !important;
+}
+:root:not(.dark) .contact-social-icon {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: rgba(30, 30, 30, 0.45) !important;
+}
+:root:not(.dark) .contact-social:hover .contact-social-icon {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+  color: rgba(30, 30, 30, 0.85) !important;
+}
+
+:root:not(.dark) .contact-label {
+  color: rgba(30, 30, 30, 0.45) !important;
+}
+:root:not(.dark) .contact-input {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #1a1a1a !important;
+}
+:root:not(.dark) .contact-input::placeholder {
+  color: rgba(30, 30, 30, 0.28) !important;
+}
+:root:not(.dark) .contact-input:focus {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+:root:not(.dark) .contact-btn {
+  background-color: #1a1a1a !important;
+  color: #f5f4f0 !important;
+}
+:root:not(.dark) .contact-btn:hover {
+  background-color: #333 !important;
+}
+
+/* Ensure placeholder text is visible in light mode */
+:root:not(.dark) input::placeholder,
+:root:not(.dark) textarea::placeholder {
+  color: rgba(30, 30, 30, 0.3) !important;
+}
+
+/* Input text in light mode */
+:root:not(.dark) input,
+:root:not(.dark) textarea {
+  color: #1a1a1a !important;
+}
+
+.blog-content {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.blog-content h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(255 255 255 / 0.9);
+  font-family: var(--font-jetbrains-mono);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(255 255 255 / 0.85);
+  font-family: var(--font-jetbrains-mono);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content p {
+  margin-bottom: 1rem;
+}
+
+.blog-content a {
+  color: rgb(255 255 255 / 0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.blog-content a:hover {
+  color: #fff;
+}
+
+.blog-content code {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.8em;
+  background: rgb(255 255 255 / 0.07);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  color: rgb(255 255 255 / 0.8);
+}
+
+.blog-content pre {
+  margin: 0;
+  padding: 1.25rem;
+  overflow-x: auto;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.code-sandbox {
+  background: #151515;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 0.5rem;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.code-sandbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #1e1e1e;
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
+}
+
+.code-lang {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.75rem;
+  color: rgb(255 255 255 / 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  color: rgb(255 255 255 / 0.5);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+
+.code-copy-btn:hover {
+  color: rgb(255 255 255 / 0.9);
+  background: rgb(255 255 255 / 0.05);
+}
+
+.blog-content pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: inherit;
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-content ul {
+  list-style-type: disc;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+}
+
+.blog-content li {
+  margin-bottom: 0.35rem;
+}
+
+.blog-content hr {
+  border: none;
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+  margin: 2rem 0;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  font-size: 0.82rem;
+}
+
+.blog-content th {
+  font-family: var(--font-jetbrains-mono);
+  font-weight: 600;
+  color: rgb(255 255 255 / 0.7);
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.blog-content td {
+  border-bottom: 1px solid rgb(255 255 255 / 0.05);
+  padding: 0.5rem 0.75rem;
+}
+
+.blog-content strong {
+  font-weight: 600;
+  color: rgb(255 255 255 / 0.85);
+}
