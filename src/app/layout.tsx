@@ -5,7 +5,7 @@ import {
   Geist_Mono,
   Inter,
   JetBrains_Mono,
-  Space_Grotesk,
+  Space_Grotesk,  
 } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
@@ -37,7 +37,7 @@ export const logoFont = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Prakash Jangid — Backend Engineer",
+  title: "Prakash Jangid — Full Stack Web Developer",
   description:
     "Portfolio of Prakash Jangid, a Backend Engineer from Rajasthan, India. Building scalable web applications with clean architecture.",
 };
