@@ -99,7 +99,7 @@ export default function Hero() {
 
             <div className="flex-shrink-0 flex flex-col items-end gap-2.5">
               <a
-                href="https://drive.google.com/file/d/1QczvtZKoc1SBwYfqH77CCRY-Twv42fjm/view?usp=sharing"
+                href="https://drive.google.com/file/d/19C5mtlS_MxTe12q5ufoQ_5uz_GblyT3D/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-resume-btn"
