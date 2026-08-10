@@ -5,7 +5,6 @@ import {
   Geist_Mono,
   Inter,
   JetBrains_Mono,
-  Space_Grotesk,  
 } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";

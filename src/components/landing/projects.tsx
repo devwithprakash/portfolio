@@ -32,6 +32,15 @@ const projects: Project[] = [
     href: "https://miraivote.vercel.app",
     repo: "https://github.com/devwithprakash/miraivote",
   },
+  {
+    title: "Orion",
+    description:
+      "AI-powered productivity workspace that integrates Gmail and Google Calendar, allowing users to manage emails, schedule events, and interact with an AI agent from a unified interface.",
+    tags: ["Next.js", "PostgreSQL", "Prisma", "Corsair"],
+    image: "/images/orion-ss.png",
+    href: "https://orion.prakashjangid.in",
+    repo: "https://github.com/devwithprakash/Orion",
+  },
 ];
 
 export default function Projects() {
