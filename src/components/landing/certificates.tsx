@@ -7,6 +7,12 @@ const certificates = [
     date: "July 2026",
     href: "/images/web-dev-cohort.png",
   },
+  {
+    title: "Gen AI Cohort 2026",
+    issuer: "ChaiCode",
+    date: "Sep 2026",
+    href: "/images/genai-cohort.png",
+  },
 ];
 
 export default function Certificates() {
