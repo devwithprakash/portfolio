@@ -20,6 +20,15 @@ interface Project {
 
 const allProjects: Project[] = [
   {
+    title: "Anvesh",
+    description:
+      "ANVESH is an AI-powered knowledge assistant with advanced RAG, enabling users to chat with their workspace sources and get context-aware answers.",
+    tags: ["RAG", "OpenAI", "Pinecone", "Typescript"],
+    image: "/images/anvesh-ss.png",
+    href: "https://anvesh.prakashjangid.in",
+    repo: "https://github.com/devwithprakash/anvesh",
+  },
+  {
     title: "Kanso",
     description:
       "Kanso is a modern form builder built with a monorepo and tRPC, offering a clean, intuitive interface to create forms with beautiful themes.",
